@@ -1,0 +1,75 @@
+body{
+    background-color: rgba(4, 118, 42, 0.953);
+    margin: 5%;
+    -webkit-appearance: none;
+}
+p{
+    margin: 0;
+}
+.box-1{
+        h1{
+            display: flex;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+
+        }
+        .result{
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-size: 50px;
+            color: rgb(200, 255, 0);
+            text-align: center;
+        }
+        .dealer-box{
+            .dealer{
+                font-size: 35px;
+                color: #fff;
+                font-style: italic;
+                display: inline-block;
+            }
+            p{
+                display: flex;
+                justify-content: center;
+                color: #fff;
+                font-size: 30px;
+                padding: 10px;
+            }
+        }
+        .player-box{
+            .player{
+                font-size: 35px;
+                color: #fff;
+                font-style: italic;
+                display: inline-block;
+            }
+            p{
+                display: flex;
+                justify-content: center;
+                color: #fff;
+                font-size: 30px;
+                padding: 10px;
+            }
+        }
+        .button-box{
+            padding:30px;
+            text-align: center;
+        }
+        .start,.hit,.stand{
+            background-color: rgba(204, 119, 119, 0.679);
+            border: 1px solid;
+            font-size: 40px;
+            border-radius: 15%;
+            color: black;
+        }
+        .start:hover{
+            opacity: 0.6;
+        }
+        .hit:hover{
+            opacity: 0.6;
+        }
+        .stand:hover{
+            opacity: 0.6;
+        }
+        
+}

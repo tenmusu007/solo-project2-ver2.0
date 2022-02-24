@@ -1,0 +1,70 @@
+body {
+  background-color: rgba(4, 118, 42, 0.953);
+  margin: 5%;
+  -webkit-appearance: none;
+}
+
+p {
+  margin: 0;
+}
+
+.box-1 h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.box-1 .result {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-size: 50px;
+  color: #c8ff00;
+  text-align: center;
+}
+.box-1 .dealer-box .dealer {
+  font-size: 35px;
+  color: #fff;
+  font-style: italic;
+  display: inline-block;
+}
+.box-1 .dealer-box p {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px;
+}
+.box-1 .player-box .player {
+  font-size: 35px;
+  color: #fff;
+  font-style: italic;
+  display: inline-block;
+}
+.box-1 .player-box p {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px;
+}
+.box-1 .button-box {
+  padding: 30px;
+  text-align: center;
+}
+.box-1 .start, .box-1 .hit, .box-1 .stand {
+  background-color: rgba(204, 119, 119, 0.679);
+  border: 1px solid;
+  font-size: 40px;
+  border-radius: 15%;
+  color: black;
+}
+.box-1 .start:hover {
+  opacity: 0.6;
+}
+.box-1 .hit:hover {
+  opacity: 0.6;
+}
+.box-1 .stand:hover {
+  opacity: 0.6;
+}
+/*# sourceMappingURL=style.css.map */
