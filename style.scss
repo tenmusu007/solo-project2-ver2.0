@@ -52,8 +52,11 @@ p{
             }
         }
         .button-box{
-            padding:30px;
+            width: 50%;
             text-align: center;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
         }
         .start,.hit,.stand{
             background-color: rgba(204, 119, 119, 0.679);

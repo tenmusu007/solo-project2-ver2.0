@@ -20,6 +20,8 @@ let resultEl = document.getElementById("result-el")
 let psumEl = document.getElementById("psum-el")
 
 function startCard(){
+    drawCard = true
+    hasBlackJack = false
     let firstcard = getRandomCard()
     let secondcard = getRandomCard()
     cards = [firstcard, secondcard]
@@ -67,6 +69,7 @@ function newCard(){
 }
 function dealerStart(){
     dealerdrawCard = true
+    dealernodrawCard = false
     let dealercard1 = getRandomCard()
     dcards = [dealercard1]
     dsum = dealercard1

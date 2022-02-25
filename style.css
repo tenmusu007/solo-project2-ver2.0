@@ -48,8 +48,11 @@ p {
   padding: 10px;
 }
 .box-1 .button-box {
-  padding: 30px;
+  width: 50%;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 .box-1 .start, .box-1 .hit, .box-1 .stand {
   background-color: rgba(204, 119, 119, 0.679);
