@@ -12,6 +12,10 @@ let nodrawCard = false
 let dealerdrawCard = true
 let dealernodrawCard = false
 let tie = false
+let win = false
+let lose = true
+let win1 = false
+let lose1 = true
 let message = " "
 let dealerEl = document.getElementById("dealer-el")
 let dsumEl = document.getElementById("dsum-el")
@@ -70,7 +74,8 @@ function newCard(){
 function dealerStart(){
     dealerdrawCard = true
     dealernodrawCard = false
-    let dealercard1 = getRandomCard()
+    tie = false
+    let dealercard1 = getRandomDealerCard()
     dcards = [dealercard1]
     dsum = dealercard1
     godealaer()
@@ -89,27 +94,49 @@ function godealaer(){
         dealerEl.textContent +=dcards[i] + " "
     }
     dsumEl.textContent = "Sum: " + dsum
-    if(dsum < 17){
-        dealerdrawCard = true
-    }else if(dsum > 21){
-        dealernodrawCard = true
-    }else if(dsum === psum){
-        tie = true
-    }else if (dsum > psum){
-        dealerdrawCard  = false
-    }
 }
-function skipCard(){
-    if(dealerdrawCard === true && dealernodrawCard === false){
+function skipCard() {
+    dealerdrawCard = true
+    dealernodrawCard = false
+    tie = false
+    win = false
+    lose = true
+    win1 = false
+    lose1 = true
+    if(dsum < 17){
         let dcard = getRandomDealerCard()
         dsum += dcard
         dcards.push(dcard)
         godealaer()
-    }else if(dealernodrawCard === true){
-        message = "You win"
-    }else if(tie === true && dealerdrawCard === false ){
+    }else if(dsum > 21){
+        dealernodrawCard = true
+        // if(dsum > psum){
+        //     lose = false
+        // }else{
+        //     win = true
+        // }
+        comparison()
+    }else if(dsum === psum){
+        tie = true
+        comparison()
+    }else if (dsum < psum){
+        dealerdrawCard = false
+        comparison()
+    }else if (dsum > psum){
+        lose1 = false
+        comparison()
+    }
+}
+function comparison(){
+    if(dealerdrawCard === true && dealernodrawCard === true){
+        message = "You win!"
+    }else if(dealerdrawCard === true && tie === true){
         message = "Tie"
-    }else if(dealernodrawCard === false && dealernodrawCard ===false){
+    }else if(dealerdrawCard === true && dealernodrawCard === false){
+        message ="You lose"
+    }else if(dealerdrawCard === false ){
+        message = "You win!"
+    }else if(lose1 = false && dealerdrawCard === true ){
         message = "You Lose"
     }
     resultEl.textContent = message
