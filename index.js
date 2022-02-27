@@ -24,6 +24,11 @@ let psumEl = document.getElementById("psum-el")
 function startRule(){
     let ruleEl = document.getElementById('rule-el');
     ruleEl.classList.add('none');
+    let standEl = document.getElementById('stand-btn');
+    standEl.classList.add('none')
+    let hitEl = document.getElementById('hit-btn');
+    hitEl.classList.add('none')
+
 }
 function againRule(){
     let ruleEl = document.getElementById('rule-el');
@@ -31,6 +36,10 @@ function againRule(){
 }
 
 function startCard(){
+    let hitEl = document.getElementById('hit-btn');
+    hitEl.classList.remove('none')
+    let standEl = document.getElementById('stand-btn');
+    standEl.classList.remove('none')
     message ="Do you want draw a card? tap 'Hit' "
     drawCard = true
     hasBlackJack = false
@@ -70,6 +79,10 @@ function goresult(){
     }else if(psum > 21){
         nodrawCard = false
         message = "You Bust"
+        let standEl = document.getElementById('stand-btn');
+        standEl.classList.add('none')
+        let hitEl = document.getElementById('hit-btn');
+        hitEl.classList.add('none')
     }else if (psum < 21){
         drawCard = true
     }
@@ -111,6 +124,9 @@ function godealaer(){
     dsumEl.textContent = "Sum: " + dsum
 }
 function skipCard() {
+    let hitEl = document.getElementById('hit-btn');
+    hitEl.classList.add('none')
+    message ="tap 'stand' until the result"
     dealerdrawCard = true
     dealernodrawCard = false
     tie = false
@@ -135,6 +151,7 @@ function skipCard() {
         lose1 = false
         comparison()
     }
+    resultEl.textContent = message
 }
 function comparison(){
     if(dealerdrawCard === true && dealernodrawCard === true){
@@ -149,4 +166,6 @@ function comparison(){
         message = "You Lose"
     }
     resultEl.textContent = message
+    let standEl = document.getElementById('stand-btn');
+        standEl.classList.add('none')
 }
