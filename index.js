@@ -7,14 +7,13 @@ let psum = 0
 let dsum = 0
 let isAlive = true
 let hasBlackJack = false
-let drawCard = true
-let nodrawCard = false
+let drawCard = false
+let nodrawCard = true
 let dealerdrawCard = true
 let dealernodrawCard = false
 let tie = false
 let win = false
 let lose = true
-let win1 = false
 let lose1 = true
 let message = " "
 let dealerEl = document.getElementById("dealer-el")
@@ -22,8 +21,17 @@ let dsumEl = document.getElementById("dsum-el")
 let playerEl = document.getElementById("player-el")
 let resultEl = document.getElementById("result-el")
 let psumEl = document.getElementById("psum-el")
+function startRule(){
+    let ruleEl = document.getElementById('rule-el');
+    ruleEl.classList.add('none');
+}
+function againRule(){
+    let ruleEl = document.getElementById('rule-el');
+    ruleEl.classList.remove('none');
+}
 
 function startCard(){
+    message ="Do you want draw a card? tap 'Hit' "
     drawCard = true
     hasBlackJack = false
     let firstcard = getRandomCard()
@@ -50,26 +58,33 @@ function renderGame(){
         playerEl.textContent +=cards[i] + " "
     }
     psumEl.textContent = "Sum: " + psum
+    goresult()
+}
+function goresult(){
+    hasBlackJack = false
+    drawCard = false
+    nodrawCard = true
     if(psum === 21){
         hasBlackJack = true
         message = "You've got Black Jack"
     }else if(psum > 21){
-        nodrawCard = true
+        nodrawCard = false
         message = "You Bust"
-    }else{
+    }else if (psum < 21){
         drawCard = true
-        message = "Do you want draw a card?"
     }
-    resultEl.textContent = message
 }
 function newCard(){
-    if (drawCard === true && hasBlackJack === false){
+    if(drawCard === true && hasBlackJack === false){
         let card = getRandomCard()
         psum += card
         cards.push(card)
+        message = "Do you want draw a card?"
         renderGame()
+    }else if(nodrawCard === true && drawCard === true){
+        message = "Click start again"
     }
-
+    resultEl.textContent = message
 }
 function dealerStart(){
     dealerdrawCard = true
@@ -101,7 +116,6 @@ function skipCard() {
     tie = false
     win = false
     lose = true
-    win1 = false
     lose1 = true
     if(dsum < 17){
         let dcard = getRandomDealerCard()
@@ -110,11 +124,6 @@ function skipCard() {
         godealaer()
     }else if(dsum > 21){
         dealernodrawCard = true
-        // if(dsum > psum){
-        //     lose = false
-        // }else{
-        //     win = true
-        // }
         comparison()
     }else if(dsum === psum){
         tie = true
